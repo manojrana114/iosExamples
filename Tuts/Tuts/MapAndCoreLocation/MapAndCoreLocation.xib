@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11163.2" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapAndCoreLocation">
+            <connections>
+                <outlet property="mapView" destination="tlr-1U-jtX" id="Wlz-z1-ggX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="VF4-TP-qX0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tlr-1U-jtX"/>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tlr-1U-jtX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3tg-px-jzA"/>
+                <constraint firstItem="tlr-1U-jtX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AYT-Vs-78g"/>
+                <constraint firstAttribute="bottom" secondItem="tlr-1U-jtX" secondAttribute="bottom" id="esU-Cw-Ftq"/>
+                <constraint firstAttribute="trailing" secondItem="tlr-1U-jtX" secondAttribute="trailing" id="gi0-41-ysU"/>
+            </constraints>
+            <point key="canvasLocation" x="13.5" y="66.5"/>
+        </view>
+    </objects>
+</document>
