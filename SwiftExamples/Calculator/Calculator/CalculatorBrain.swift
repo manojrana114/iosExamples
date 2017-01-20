@@ -17,18 +17,56 @@ class CalculatorBrain{
     func setOperand(operand: Double){
         accumulator=operand
     }
+    var operations=[
+        "∏":Operation.Constant(M_PI),
+        "e":Operation.Constant(M_E),
+        "√":Operation.Unary(sqrt),
+        "+":Operation.Binary({$0+$1}),
+        "-":Operation.Binary({$0-$1}),
+        "×":Operation.Binary({$0*$1}),
+        "/":Operation.Binary({$0/$1}),
+        "=":Operation.Equals,
+        "C":Operation.Constant(0.0)
+        
+    ];
     
+    enum Operation{
+        case Constant(Double)
+        case Unary((Double)->(Double))
+        case Binary((Double,Double)-> Double)
+        case Equals
+        
+    }
+    
+    var pending: PendingOperation?
+    
+    struct PendingOperation {
+        var binaryFunction:(Double,Double)->Double
+        var firstOperand:Double
+        
+    }
     func performOperation(symbol: String){
-        switch symbol {
-        case "∏":
-            accumulator=M_PI
-        case "√":
-            accumulator=sqrt(accumulator)
-        default:
-            break;
+        if let operation=operations[symbol]{
+            switch operation {
+            case .Constant(let value):
+                accumulator=value
+            case .Unary(let function):
+                accumulator=function(accumulator)
+            case .Binary(let function):
+                executePendingBinaryOperation()
+                pending=PendingOperation(binaryFunction: function, firstOperand: accumulator)
+            case .Equals:
+                executePendingBinaryOperation()
+            }
         }
     }
     
+    func executePendingBinaryOperation(){
+        if pending != nil {
+            accumulator=pending!.binaryFunction(pending!.firstOperand, accumulator)
+            pending=nil
+        }
+    }
     var result:Double{
         get{
             return accumulator

@@ -34,7 +34,11 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set{
-            display.text=String(newValue)
+            if(newValue == 0){
+                display.text="0"
+            }else{
+                display.text=String(newValue)
+            }
         }
     }
     
@@ -52,5 +56,14 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func decimalTapped() {
+        let result=display.text!.range(of: ".")
+        if result == nil{
+            display.text!+="."
+            userInMiddleOfTyping=true
+
+        }
+    }
 }
 
