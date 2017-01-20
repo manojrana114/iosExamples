@@ -12,27 +12,43 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var display: UILabel!
     
-    private var displayLong:Double?{
+    var userInMiddleOfTyping=false
+    
+    
+    
+    @IBAction private func touchDigit(_ sender: UIButton) {
+        let digit=sender.currentTitle!
         
+        if userInMiddleOfTyping{
+            display.text=display.text!+digit
+        }else{
+            display.text=digit
+        }
+        userInMiddleOfTyping=true
+        
+    }
+    
+    //Computed property to track tet in display Label
+    var displayValue: Double{
         get{
-            return Double(display.text!)
+            return Double(display.text!)!
         }
         set{
-            display.text=String(describing: newValue)
+            display.text=String(newValue)
         }
     }
     
-    var userInMiddleOfTyping=false
+    var brain=CalculatorBrain()
     
-    @IBAction private func digitTapped(_ sender: UIButton) {
+    @IBAction func performOperation(_ sender: UIButton) {
+        if(userInMiddleOfTyping){
+            userInMiddleOfTyping=false
+            brain.setOperand(operand: displayValue)
+        }
         
-        if let digitTapped=sender.currentTitle{
-            if userInMiddleOfTyping{
-                display.text=display.text!+digitTapped
-            }else{
-                display.text=digitTapped
-                userInMiddleOfTyping=true
-            }
+        if let mathematicalSymbol=sender.currentTitle{
+            brain.performOperation(symbol: mathematicalSymbol)
+            displayValue=brain.result
         }
     }
     
