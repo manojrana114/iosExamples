@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,36 +22,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-8N-Z1x">
-                                <rect key="frame" x="127" y="51" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DATA TASK"/>
-                                <connections>
-                                    <action selector="OnTapDataTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctJ-1X-LuS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-DC-m1M">
-                                <rect key="frame" x="103" y="102" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DOWNLOAD TASK"/>
-                                <connections>
-                                    <action selector="OnTapDownloadTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5l-bE-cQp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll8-MT-onv">
-                                <rect key="frame" x="116" y="154" width="101" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lJg-Nz-dYJ">
+                                <rect key="frame" x="16" y="46" width="316" height="122"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-8N-Z1x">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="30"/>
+                                        <state key="normal" title="DATA TASK"/>
+                                        <connections>
+                                            <action selector="OnTapDataTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctJ-1X-LuS"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="&lt;Json placeholder&gt;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="edP-Yp-sGT">
+                                        <rect key="frame" x="98" y="0.0" width="218" height="122"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="edP-Yp-sGT" secondAttribute="bottom" id="n4f-jv-pqu"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oca-VZ-tXQ">
+                                <rect key="frame" x="16" y="210" width="275" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhN-DC-m1M">
+                                        <rect key="frame" x="0.0" y="35" width="127" height="30"/>
+                                        <state key="normal" title="DOWNLOAD TASK"/>
+                                        <connections>
+                                            <action selector="OnTapDownloadTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5l-bE-cQp"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQH-wv-bih">
+                                        <rect key="frame" x="147" y="0.0" width="128" height="100"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xQH-wv-bih" firstAttribute="top" secondItem="oca-VZ-tXQ" secondAttribute="top" id="aMG-dk-9kY"/>
+                                    <constraint firstItem="JhN-DC-m1M" firstAttribute="top" secondItem="oca-VZ-tXQ" secondAttribute="top" constant="35" id="lre-mC-aIF"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nad-Qg-bTP">
+                                <rect key="frame" x="16" y="388" width="101" height="30"/>
                                 <state key="normal" title="UPLOAD TASK"/>
                                 <connections>
-                                    <action selector="OnTapUploadTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TJ3-zh-IIG"/>
+                                    <action selector="OnTapUploadTaskButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ri-S1-gN0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-vN-xQW">
+                                <rect key="frame" x="16" y="515" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="DOWNLOAD VIDEO"/>
+                                <connections>
+                                    <action selector="downloadTaskForVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SfL-Tr-7YC"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="W03-mm-gTG">
+                                <rect key="frame" x="16" y="553" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lJg-Nz-dYJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="26" id="4OA-GT-2bz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oca-VZ-tXQ" secondAttribute="trailing" constant="68" id="EjK-qw-UN0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lJg-Nz-dYJ" secondAttribute="trailing" constant="27" id="Jgo-mE-LX0"/>
+                            <constraint firstItem="lJg-Nz-dYJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aty-ua-2Rp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nad-Qg-bTP" secondAttribute="bottom" constant="249" id="fR0-yZ-K9a"/>
+                            <constraint firstItem="lJg-Nz-dYJ" firstAttribute="leading" secondItem="oca-VZ-tXQ" secondAttribute="leading" id="frB-SD-pQd"/>
+                            <constraint firstItem="oca-VZ-tXQ" firstAttribute="top" secondItem="lJg-Nz-dYJ" secondAttribute="bottom" constant="42" id="hqR-Ol-BYK"/>
+                            <constraint firstItem="oca-VZ-tXQ" firstAttribute="leading" secondItem="Nad-Qg-bTP" secondAttribute="leading" id="oVv-bZ-MBb"/>
+                            <constraint firstItem="Nad-Qg-bTP" firstAttribute="top" secondItem="oca-VZ-tXQ" secondAttribute="bottom" constant="78" id="zCH-XG-bvb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xQH-wv-bih" id="XLF-Rf-klV"/>
+                        <outlet property="jsonTextView" destination="edP-Yp-sGT" id="BiC-kT-pX3"/>
+                        <outlet property="progressView" destination="W03-mm-gTG" id="Mz9-bu-zuY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="60" y="-66"/>
         </scene>
     </scenes>
 </document>
