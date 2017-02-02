@@ -16,8 +16,8 @@
  *      Ephermal-> Configure Session with RAM based cache.Use this when
  *                 small data needs to download.Credential gets disposed
  *                 once we are done with session
- *      Background-> Use this when we need to download data in background even when app is not
- *                   running
+ *      Background-> Use this when we need to download data in background even when app is not running
+ *
  * b)Create URLSession passing configuration in constructor. Set session delegate if we want to
  *   use delegation mechanish or continous communication.
  * c) Create datatask/downloadtask/uploadtask.
@@ -25,7 +25,7 @@
  *                  Resume is not supported so cant be used in backgrond session
  *       DownloadTask -> It writes the respone to disk at temp location.
  *                       Used for background downloading task.
- *       Upload task ->
+ *       Upload task -> //Need to try
  *
  *   We can pass completion handler or can use delegate to get notified when task is complete
  * d) call resume method on created task
@@ -61,6 +61,9 @@ class ViewController: UIViewController , URLSessionDownloadDelegate {
         downloadTaskWithDelegate()
     }
     
+    @IBAction func downloadInBackground(_ sender: UIButton) {
+        downloadTaskInBackground()
+    }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -163,18 +166,56 @@ class ViewController: UIViewController , URLSessionDownloadDelegate {
     var data = Data()
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
     
-    
+        let bgIdentifier=session.configuration.identifier;
+        if(bgIdentifier == nil){
         DispatchQueue.main.async {
             self.progressView.setProgress(Float(totalBytesWritten)/Float(totalBytesExpectedToWrite), animated: true)
+            }
+        }else{
+        print("Downloding data in background")
+            
         }
 
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
+        guard error==nil else {
+            return
+        }
+        
+        session.finishTasksAndInvalidate()
+        
     }
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL){
     }
     
+    // MARK: Background download
+    let configurationIdentifier="backConfig"
+    var backgroundIdentifier:String{
+        get{
+            let userDefaults=UserDefaults.standard
+            if let value=userDefaults.string(forKey: configurationIdentifier){
+                return value
+            }else{
+            let value=Date.description(Date.init())
+                return String(describing: value)
+            }
+        }
+    }
+
+    func downloadTaskInBackground(){
+        let videoURL = URL(string: "https://ia601409.us.archive.org/8/items/alanoakleysmalltestvideo/spacetestSMALL.ogv");
+
+        // a)create configuration
+        let configuration=URLSessionConfiguration.background(withIdentifier: backgroundIdentifier)
+        configuration.timeoutIntervalForRequest=10
+        // b) create session
+        let session=URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        //c)creatse task
+        let task=session.downloadTask(with: videoURL!)
+        task.resume()
+        
+    }
 }
 
