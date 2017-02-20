@@ -72,4 +72,34 @@ class FaceViewController: UIViewController
             }
         }
     }
+    
+    @IBAction func blinkEye(_ sender: UIButton) {
+        let currentState = expression.eyes
+        let delay = DispatchTime(uptimeNanoseconds: 1000)
+        if(currentState == .Closed)
+        {
+            UIView .animate(withDuration: 2, animations: {
+                self.faceView.eyesOpen = true
+
+            }, completion: { (result) in
+                UIView .animate(withDuration: 2, animations: {
+                    self.expression.eyes = .Closed
+                });
+            });
+            
+        }
+        else
+        {
+            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                self.expression.eyes = .Closed
+            })
+            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                self.expression.eyes = .Open
+            })
+        }
+               
+    }
+    
+    @IBAction func changeFaceColor(_ sender: UIButton) {
+    }
 }
