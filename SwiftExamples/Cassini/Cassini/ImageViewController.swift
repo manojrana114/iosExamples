@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+class ImageViewController: UIViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
         {
@@ -23,26 +23,43 @@ class ImageViewController: UIViewController {
         {
         didSet{
             image = nil
-            fetchImage()
+            if(view.window != nil){
+                fetchImage()
+            }
             }
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchImage()
+    }
     
     private func fetchImage()
     {
         if let url = imageUrl
         {
-            do{
-                let data = try Data(contentsOf: url)
-                image = UIImage(data: data)
-            }catch{
-            // for now empty
-                print("Exception occured")
-            }
+            self.activityIndicator.startAnimating()
+                let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated)
+                queue.async {
+                    do{
+                    let data = try Data(contentsOf: url)
+                        DispatchQueue.main.async {[weak self] in
+                            self?.image = UIImage(data: data)
+                            self?.activityIndicator.stopAnimating()
+
+                        }
+                }catch{
+                    // for now empty
+                    print("Exception occured")
+                }
+                }
+                
         }
     }
     
     let imageView = UIImageView()
    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var image : UIImage?
     {   get { return imageView.image}
         set
@@ -55,12 +72,21 @@ class ImageViewController: UIViewController {
         }
     }
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.minimumZoomScale = 0.3
+        scrollView.minimumZoomScale = 2.0
         scrollView.addSubview(imageView)
-        imageUrl =  DemoURL.NASAImageNamed(imageName: "Cassini") as URL?
-
+        activityIndicator.hidesWhenStopped = true
     }
+    
+    
+    
+    
 
   }
 
