@@ -1,0 +1,47 @@
+ [
+  {
+  "nickName":"Manoj",
+  "details":{
+            "name":"Manoj Pratap Singh Rana",
+            "id": 2445,
+            "companyName":"Impetus",
+            "joiningDate":"09-07-2012"
+  }
+},
+  {
+  "nickName":"Ram",
+  "details":{
+            "name":"Ram Jaiswal",
+            "id": 2446,
+            "companyName":"Impetus",
+            "joiningDate":"09-07-2012"
+    }
+  },
+  {
+  "nickName":"Rohit",
+  "details":{
+            "name":"Rohit ",
+            "id": 2447,
+            "companyName":"Impetus",
+            "joiningDate":"09-07-2012"
+            }
+  },
+  {
+  "nickName":"Monika",
+  "details":{
+            "name":"Monika Sisodia",
+            "id": 2449,
+            "companyName":"NA",
+            "joiningDate":""
+            }
+},
+{
+  "nickName":"Sippy",
+  "details":{
+            "name":"Sippy Arora",
+            "id": 24673,
+            "companyName":"NA",
+            "joiningDate":""
+            }
+}]
+
