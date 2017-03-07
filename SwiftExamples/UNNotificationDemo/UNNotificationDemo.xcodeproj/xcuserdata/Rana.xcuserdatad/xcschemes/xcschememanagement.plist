@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ContentExt.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>UNNotificationDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,26 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>252637411E6DC53400B6B21A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25F531FD1E6F365200BA2A43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25F5320D1E6F398200BA2A43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25F5321C1E6F3C3700BA2A43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25F5322D1E6F3F4000BA2A43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
