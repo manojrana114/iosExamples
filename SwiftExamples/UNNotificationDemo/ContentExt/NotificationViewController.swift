@@ -14,6 +14,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
 
     @IBOutlet var label: UILabel?
     
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any required interface initialization here.
@@ -21,6 +22,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     func didReceive(_ notification: UNNotification) {
         self.label?.text = notification.request.content.body
+        self.imageView?.image = UIImage(data: try! Data(contentsOf: notification.request.content.attachments[0].url))
     }
 
 }

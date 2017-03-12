@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>ServiceExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>UNNotificationDemo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>252637411E6DC53400B6B21A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25A919E31E750E59008EEA99</key>
 		<dict>
 			<key>primary</key>
 			<true/>

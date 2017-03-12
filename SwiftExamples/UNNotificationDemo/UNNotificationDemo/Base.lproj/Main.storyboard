@@ -43,11 +43,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JT-yE-bXb">
-                                <rect key="frame" x="92" y="200" width="191" height="30"/>
-                                <state key="normal" title="Add Text Action Notification"/>
-                                <connections>
-                                    <action selector="addTextActionNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G3V-Kt-m6e"/>
-                                </connections>
+                                <rect key="frame" x="58" y="200" width="258" height="30"/>
+                                <state key="normal" title="Send Media Attachment in notifcation"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pm-bY-Jdh">
                                 <rect key="frame" x="118" y="473" width="138" height="30"/>

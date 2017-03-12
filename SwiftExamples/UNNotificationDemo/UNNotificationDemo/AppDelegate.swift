@@ -26,25 +26,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         let center = UNUserNotificationCenter.current()
         
-        //Set up to configure notifications
+        //Steps configure notifications
         
         //1) Registration /Request Authorization.Needed for both Local and Remote notification
         center.requestAuthorization(options: [.alert,.badge,.sound]){ (granted, error) in
             if granted{
                 //Enable feature
-                print("Authorized  : \(granted)");
+                print("Authorized  : \(granted)")
+                
                 //a) Part of registration process  for remoter notification
                 UIApplication.shared.registerForRemoteNotifications();
             }else{
-            //Disable notification based feature
-                
-            }};
+                    //Disable notification based feature
+                }};
         
+        // TO handle case when user enable/disable notifications from seting
+        self.enableNotificationDependentFeature()
+
         // 2) Content Creation
         let content = UNMutableNotificationContent()
         content.title = "Notificatio demo"
         content.subtitle = "Time based notification"
         content.body = "My first notification"
+        //NOTE : Required to get callbacks in handler methods
         center.delegate = self
         
         
@@ -60,29 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print("Error : \(error)")
             }
         }
-        
-        /* //b We can set category for the notification. We use to associate custom action with notfication and defines how that notification needs to be handled
-         
-         //Category without action
-         let generalCategory = UNNotificationCategory(identifier: "GENERAL", actions: [], intentIdentifiers: [], options: .customDismissAction)
-         
-         //Category with action
-         //Note: we might add four custom action but only in banner notification are enabled user will see only Top 2 action.
-         //We can also add UNTextInputNotificationAction (To take input from user as in chat applicatiom)
-         //First create action
-         let snoozeAction = UNNotificationAction(identifier: "SNOOZE_ACTION", title: "Snooze", options:.init(rawValue: 0))
-         let stopAction = UNNotificationAction(identifier: "STOP_ACTION", title: "Stop", options:.foreground)
-         
-         let expiredCategory = UNNotificationCategory(identifier: "TIMER_EXPIRED", actions: [snoozeAction,stopAction], intentIdentifiers: [], options: .init(rawValue: 0))
-         
-         
-         
-         //3 Register category with Notificaion center
-         center.setNotificationCategories([generalCategory,expiredCategory]);
-         
-         */
-        
-        
         return true
     }
     
@@ -99,8 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
     }
     
-    // MARK:UNUserNotificationDelegate : Notification handling ,Needs to set notification center delagate
-    
+    // MARK:UNUserNotificationDelegate : Notification handling ,We needs to set notification center delagate.
+    //These will be called for both Remote and Local notificaton
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Handling notification when app is in Foreground
         completionHandler([.alert,.sound])
@@ -115,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK: Remote notification handling method
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print(deviceToken)
+        //Send tokem to server.....
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

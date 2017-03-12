@@ -72,25 +72,30 @@ class ViewController: UIViewController {
     
     @IBAction func addActionNotification(_ sender: Any) {
         
-        //Create Action
+        //Create Actions
         let snoozeAction = UNNotificationAction(identifier: "SNOOZE_ACTION", title: "Snooze", options: UNNotificationActionOptions.init(rawValue: 0))
         
         let textInputAction = UNTextInputNotificationAction(identifier: "input", title: "Message", options: .init(rawValue: 1), textInputButtonTitle: "Send", textInputPlaceholder: "name")
         
         let stopAction = UNNotificationAction(identifier: "STOP_ACTION", title: "Stop", options:.foreground)
         
-        //create Category
+        //CREATE Category
         let timerCategory = UNNotificationCategory(identifier: "timerCategory", actions: [textInputAction,snoozeAction,stopAction], intentIdentifiers: [], options: [])
         
         //Register category with UNNotifictionCenter
         UNUserNotificationCenter.current().setNotificationCategories([timerCategory])
         
+        let url = Bundle.main.url(forResource: "giphy", withExtension: ".gif")!
+        let attachment = try? UNNotificationAttachment(identifier: "", url: url, options:["":""] )
         
+        
+        //(identifier: "giff",url, options: nil)
         // 2) Content Creation
         let content = UNMutableNotificationContent()
         content.title = "Alarm"
         content.body = "Wake up !!"
         content.categoryIdentifier = "timerCategory"
+        content.attachments = [attachment!]
         
         //3) Create trigger
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
