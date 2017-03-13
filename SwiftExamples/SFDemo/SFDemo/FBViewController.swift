@@ -6,6 +6,23 @@
 //  Copyright © 2017 learning. All rights reserved.
 //
 
+
+
+/*
+ * Social framework can be used to integrate Social platform into our application. iOS provides inbuilt support for many social platform.
+ 
+ We can use UIActivity for sharing content with any people using any of
+ social account configured on device.
+ 
+ UIActivity can be used or SLComposeViewController can be used simply to
+ shared content. For more control e cam SLRequest to direcly call apis
+ provided by Social Framework
+ 
+ *
+ *
+ *
+ *
+ */
 import UIKit
 import Accounts
 import Social
