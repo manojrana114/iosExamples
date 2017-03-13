@@ -13,7 +13,7 @@ import UserNotifications
 //3 Trigger Notification(Push, TimeInterval, Calendar and Location)
 //4 Schedule Notification
 
-// NOTIFICATION MANAGEMENT: We can access pending and delivered notification: IS used to rremove or update notification(see viewcontroller for code)
+// NOTIFICATION MANAGEMENT: We can access pending and delivered notification: IS used to remove or update notification(see viewcontroller for code)
 //
 
 @UIApplicationMain
