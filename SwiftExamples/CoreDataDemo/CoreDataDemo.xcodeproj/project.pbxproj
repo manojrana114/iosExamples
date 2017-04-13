@@ -12,6 +12,8 @@
 		252C02CC1E786255000A6A63 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 252C02CA1E786255000A6A63 /* CoreDataDemo.xcdatamodeld */; };
 		252C02CE1E786255000A6A63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252C02CD1E786255000A6A63 /* Assets.xcassets */; };
 		252C02D11E786255000A6A63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252C02CF1E786255000A6A63 /* LaunchScreen.storyboard */; };
+		252DF2A11E9BF6520077D517 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252DF2A01E9BF6520077D517 /* CoreDataViewController.swift */; };
+		252DF2A41E9BFBAF0077D517 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252DF2A31E9BFBAF0077D517 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		252C02CD1E786255000A6A63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252C02D01E786255000A6A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		252C02D21E786255000A6A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		252DF2A01E9BF6520077D517 /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		252DF2A31E9BFBAF0077D517 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252DF2A41E9BFBAF0077D517 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 			children = (
 				252C02C21E786255000A6A63 /* CoreDataDemo */,
 				252C02C11E786255000A6A63 /* Products */,
+				252DF2A21E9BFBAF0077D517 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +62,29 @@
 			children = (
 				252C02C31E786255000A6A63 /* AppDelegate.swift */,
 				252C02C71E786255000A6A63 /* Main.storyboard */,
+				252DF29F1E9BF6150077D517 /* Supporting files */,
+				252C02CA1E786255000A6A63 /* CoreDataDemo.xcdatamodeld */,
+				252DF2A01E9BF6520077D517 /* CoreDataViewController.swift */,
+			);
+			path = CoreDataDemo;
+			sourceTree = "<group>";
+		};
+		252DF29F1E9BF6150077D517 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				252C02CD1E786255000A6A63 /* Assets.xcassets */,
 				252C02CF1E786255000A6A63 /* LaunchScreen.storyboard */,
 				252C02D21E786255000A6A63 /* Info.plist */,
-				252C02CA1E786255000A6A63 /* CoreDataDemo.xcdatamodeld */,
 			);
-			path = CoreDataDemo;
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		252DF2A21E9BFBAF0077D517 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				252DF2A31E9BFBAF0077D517 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252DF2A11E9BF6520077D517 /* CoreDataViewController.swift in Sources */,
 				252C02CC1E786255000A6A63 /* CoreDataDemo.xcdatamodeld in Sources */,
 				252C02C41E786255000A6A63 /* AppDelegate.swift in Sources */,
 			);
@@ -299,6 +323,7 @@
 				252C02D71E786255000A6A63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

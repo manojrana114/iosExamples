@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Security
 class ViewController: UIViewController {
 
     let myKeychainWrapper = KeychainWrapper()
@@ -33,5 +33,18 @@ class ViewController: UIViewController {
         print(value)
     }
     
+    
+   /*func listCertificates()
+    {
+        var status : OSStatus ;
+    
+        let kSecClassValue = kSecClass.takeRetainedValue() as NSString
+        let kSecAttrAccountValue = kSecAttrAccount.takeRetainedValue() as NSString
+        let kSecValueDataValue = kSecValueData.takeRetainedValue() as NSString
+        let kSecClassGenericPasswordValue = kSecClassGenericPassword.takeRetainedValue() as NSString
+        let kSecAttrServiceValue = kSecAttrService.takeRetainedValue() as NSString
+        let kSecMatchLimitValue = kSecMatchLimit.takeRetainedValue() as NSString
+        let kSecReturnDataValue = kSecReturnData.takeRetainedValue() as NSString
+        let kSecMatchLimitOneValue = kSecMatchLimitOne.takeRetainedValue() as NSString
+    }*/
 }
-
