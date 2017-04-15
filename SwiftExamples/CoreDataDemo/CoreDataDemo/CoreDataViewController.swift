@@ -12,8 +12,9 @@ class CoreDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //insertCompany()
-        //InsertEmployee()
+        insertCompany()
+        InsertEmployee()
+        fetchrecords()
     }
 
     
@@ -54,10 +55,20 @@ class CoreDataViewController: UIViewController {
         
     }
     
-    //Querying
+    //Querying database
     func fetchrecords(){
-    let request = NSFetchRequest(entityName: "Company")
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Company")
+        context.perform {
+            do{
+                let fetchedCompany = try context.execute(request) as! NSAsynchronousFetchResult<NSFetchRequestResult>
+
+                print(fetchedCompany)
+            }catch{
+            fatalError("error occured \(error)")
+            }
+        }
         
     }
     

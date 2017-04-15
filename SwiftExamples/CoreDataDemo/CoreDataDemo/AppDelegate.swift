@@ -6,6 +6,19 @@
 //  Copyright © 2017 Self Learning. All rights reserved.
 //
 
+/*  CoreData Stack:
+ *
+ * a) ManagedObjectContext: Scratch Pad where object graph is maintained
+ * b) ManagedObjectModel : We define entities and relationship here. 
+ *                         Each entity represents table row in DB
+ * c) PersistentCordinator: Sits in middle of stack. Retrieves instances
+ *                          from persistent store/DB.create instances 
+ *                          using model
+ * d) PersistentConatiner :Creates core data stack and provides handle to
+ *                         managedobjectcontext
+ *
+ */
+
 import UIKit
 import CoreData
 
