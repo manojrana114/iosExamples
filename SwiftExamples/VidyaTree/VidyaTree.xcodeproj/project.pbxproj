@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256F94591EBB96AD0034F3B6 /* VoiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */; };
+		256F945B1EBBA0920034F3B6 /* VoiceHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */; };
 		25DCC7581EBA4A77004A7BCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DCC7571EBA4A77004A7BCE /* AppDelegate.swift */; };
 		25DCC75A1EBA4A77004A7BCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DCC7591EBA4A77004A7BCE /* ViewController.swift */; };
 		25DCC75D1EBA4A77004A7BCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25DCC75B1EBA4A77004A7BCE /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelper.swift; sourceTree = "<group>"; };
+		256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelperDelegate.swift; sourceTree = "<group>"; };
 		25DCC7541EBA4A77004A7BCE /* VidyaTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidyaTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DCC7571EBA4A77004A7BCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25DCC7591EBA4A77004A7BCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,8 +80,10 @@
 			children = (
 				25DCC7691EBA4B53004A7BCE /* Supporting Files */,
 				25DCC7591EBA4A77004A7BCE /* ViewController.swift */,
+				256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */,
 				25DCC75B1EBA4A77004A7BCE /* Main.storyboard */,
 				25DCC76A1EBA4DCF004A7BCE /* ApiAIDemoSwift-Bridging-Header.h */,
+				256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */,
 			);
 			path = VidyaTree;
 			sourceTree = "<group>";
@@ -228,6 +234,8 @@
 			files = (
 				25DCC75A1EBA4A77004A7BCE /* ViewController.swift in Sources */,
 				25DCC7581EBA4A77004A7BCE /* AppDelegate.swift in Sources */,
+				256F945B1EBBA0920034F3B6 /* VoiceHelperDelegate.swift in Sources */,
+				256F94591EBB96AD0034F3B6 /* VoiceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
