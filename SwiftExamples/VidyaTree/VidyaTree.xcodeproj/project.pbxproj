@@ -13,6 +13,7 @@
 		25DCC75F1EBA4A77004A7BCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25DCC75E1EBA4A77004A7BCE /* Assets.xcassets */; };
 		25DCC7621EBA4A77004A7BCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25DCC7601EBA4A77004A7BCE /* LaunchScreen.storyboard */; };
 		9C94C69938D457E8593AE400 /* Pods_VidyaTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85A4282D676B8D12E636754 /* Pods_VidyaTree.framework */; };
+		DAFED3641EBB71A600ABA3BE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFED3631EBB71A600ABA3BE /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A85A4282D676B8D12E636754 /* Pods_VidyaTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VidyaTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADE1008A2CCCE91847C672 /* Pods-VidyaTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidyaTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VidyaTree/Pods-VidyaTree.debug.xcconfig"; sourceTree = "<group>"; };
 		D54AE3060F93179652377CAF /* Pods-VidyaTree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VidyaTree.release.xcconfig"; path = "Pods/Target Support Files/Pods-VidyaTree/Pods-VidyaTree.release.xcconfig"; sourceTree = "<group>"; };
+		DAFED3631EBB71A600ABA3BE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFED3641EBB71A600ABA3BE /* AVFoundation.framework in Frameworks */,
 				9C94C69938D457E8593AE400 /* Pods_VidyaTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +96,7 @@
 		79AFF05F0079B255640F6E26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DAFED3631EBB71A600ABA3BE /* AVFoundation.framework */,
 				A85A4282D676B8D12E636754 /* Pods_VidyaTree.framework */,
 			);
 			name = Frameworks;

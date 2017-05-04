@@ -10,7 +10,7 @@ import UIKit
 import ApiAI
 import Speech
 import SCSiriWaveformView
-
+import AVFoundation
 class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     
     
@@ -20,6 +20,8 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     @IBOutlet weak var microphoneButton: UIButton!
     
     @IBOutlet weak var waveView: SCSiriWaveformView!
+    
+    
     //API.AI init
     private let apiAI = ApiAI()
     
@@ -30,7 +32,10 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    
+    //Speech Synthesier
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup for API.AI
@@ -82,7 +87,8 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
-        if audioEngine.isRunning {
+       convertTextToSpeech(speechText: "")
+        /* if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
@@ -90,7 +96,7 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
         } else {
             startRecording()
            // microphoneButton.setTitle("Stop Recording", for: .normal)
-        }
+        }*/
     }
     
     func startRecording() {
@@ -182,9 +188,15 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     }
     
     
+    func convertTextToSpeech(speechText: String){
+        myUtterance = AVSpeechUtterance(string: "Hi, who are you")
+        myUtterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+        myUtterance.rate = 0.3
+        myUtterance.pitchMultiplier = 2
+        synth.speak(myUtterance)
+        }
     
-    
-    
+   
     
     
     
