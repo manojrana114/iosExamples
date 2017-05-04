@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ContentExt.xcscheme</key>
+		<key>Extension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>ServiceExtension.xcscheme</key>
+		<key>ExtensionUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>UNNotificationDemo.xcscheme</key>
+		<key>MyPayment.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -22,17 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>252637411E6DC53400B6B21A</key>
+		<key>DA8D58481EB9A98500B3672D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25A919E31E750E59008EEA99</key>
+		<key>DA8D58631EB9AAED00B3672D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25F5322D1E6F3F4000BA2A43</key>
+		<key>DA8D586C1EB9AAF000B3672D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

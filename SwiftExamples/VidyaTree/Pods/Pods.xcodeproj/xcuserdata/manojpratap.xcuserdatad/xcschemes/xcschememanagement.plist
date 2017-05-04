@@ -4,35 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ContentExt.xcscheme</key>
+		<key>ApiAI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>ServiceExtension.xcscheme</key>
+		<key>Pods-VidyaTree.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>UNNotificationDemo.xcscheme</key>
+		<key>SCSiriWaveformView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>252637411E6DC53400B6B21A</key>
+		<key>7B30B85B3625D5123E5B48BE5A06A64A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25A919E31E750E59008EEA99</key>
+		<key>AA1A10F51779DEE8FF962A7B0C98A6A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25F5322D1E6F3F4000BA2A43</key>
+		<key>C47DEEF20BED5D47F6999E766853CCDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

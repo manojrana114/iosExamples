@@ -9,6 +9,7 @@
 import UIKit
 import ApiAI
 import Speech
+import SCSiriWaveformView
 
 class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
     
@@ -18,6 +19,7 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var microphoneButton: UIButton!
     
+    @IBOutlet weak var waveView: SCSiriWaveformView!
     //API.AI init
     private let apiAI = ApiAI()
     
@@ -35,6 +37,14 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
         let configuration :AIDefaultConfiguration = AIDefaultConfiguration()
         configuration.clientAccessToken = "fba659ea6d954bfca5146000cad53a8d"
         self.apiAI.configuration = configuration
+        
+        // Setup speech recognition
+        setupSpeechRecognition()
+        
+        //setup waveview
+        configureWaveView()
+        updateWaveViewMeters()
+        
     }
 
     //MARK: Setup speech recognition
@@ -76,10 +86,10 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
+            //microphoneButton.setTitle("Start Recording", for: .normal)
         } else {
             startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
+           // microphoneButton.setTitle("Stop Recording", for: .normal)
         }
     }
     
@@ -149,7 +159,7 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
         
     }
     
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             microphoneButton.isEnabled = true
         } else {
@@ -157,5 +167,45 @@ class ViewController: UIViewController ,SFSpeechRecognizerDelegate {
         }
     }
 
+    //Mark: Configure WaveView
+    
+    func configureWaveView(){
+        waveView.waveColor = UIColor.white
+        waveView.primaryWaveLineWidth = 3.0
+        waveView.secondaryWaveLineWidth = 1.0
+    }
+    
+    func updateWaveViewMeters(){
+    //TODO: Fetch from Recorder
+        let normalizedValue:CGFloat = 0.5 //pow(10, CGFloat(recorder.averagePowerForChannel(0))/20)
+       waveView.update(withLevel: normalizedValue)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

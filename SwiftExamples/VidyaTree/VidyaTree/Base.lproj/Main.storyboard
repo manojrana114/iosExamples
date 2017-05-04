@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,23 +29,60 @@
                                     <constraint firstAttribute="height" constant="36" id="nal-yw-QEM"/>
                                 </constraints>
                                 <state key="normal" image="Microphone"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYx-bV-pag"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Listening !!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KQA-lB-jii">
+                                <rect key="frame" x="16" y="158" width="343" height="181"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="181" id="GaC-17-Le2"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What can I help you with ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pko-2T-oWB">
+                                <rect key="frame" x="51" y="37" width="274" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="DXR-OV-sy9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-PU-h1s" customClass="SCSiriWaveformView">
-                                <rect key="frame" x="67" y="417" width="240" height="128"/>
+                                <rect key="frame" x="54" y="454" width="240" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="top" secondItem="pko-2T-oWB" secondAttribute="bottom" constant="28" id="9vX-xW-qCe"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mb8-dG-sHJ"/>
+                            <constraint firstItem="pko-2T-oWB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="R9e-Z8-vV9"/>
                             <constraint firstItem="Lfo-Wn-dI8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VRK-6E-0Or"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VtZ-gc-cnJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lfo-Wn-dI8" secondAttribute="bottom" constant="33" id="lw1-KR-DFN"/>
+                            <constraint firstItem="pko-2T-oWB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="met-Bc-Sdz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="microphoneButton" destination="Lfo-Wn-dI8" id="i5J-f2-BIB"/>
+                        <outlet property="speechToTextView" destination="KQA-lB-jii" id="hXC-qS-yUe"/>
+                        <outlet property="waveView" destination="ccH-PU-h1s" id="Eci-ar-KCv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.200000000000003" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-626" y="76"/>
         </scene>
     </scenes>
     <resources>
