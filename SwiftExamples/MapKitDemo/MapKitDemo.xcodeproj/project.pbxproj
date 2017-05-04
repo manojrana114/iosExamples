@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25968E961EB5B0D800B14B3A /* CurvedPolyLineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25968E951EB5B0D800B14B3A /* CurvedPolyLineRenderer.swift */; };
 		DA7C04DA1E93690000D51E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C04D91E93690000D51E61 /* AppDelegate.swift */; };
 		DA7C04DF1E93690100D51E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7C04DD1E93690100D51E61 /* Main.storyboard */; };
 		DA7C04E11E93690100D51E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7C04E01E93690100D51E61 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25968E951EB5B0D800B14B3A /* CurvedPolyLineRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurvedPolyLineRenderer.swift; sourceTree = "<group>"; };
 		DA7C04D61E93690000D51E61 /* MapKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7C04D91E93690000D51E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA7C04DE1E93690100D51E61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				DA7C04DD1E93690100D51E61 /* Main.storyboard */,
 				DA7C04EC1E936A5B00D51E61 /* MapViewController.swift */,
 				DA7C04F11E93758100D51E61 /* Place.swift */,
+				25968E951EB5B0D800B14B3A /* CurvedPolyLineRenderer.swift */,
 			);
 			path = MapKitDemo;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				DA7C04F21E93758100D51E61 /* Place.swift in Sources */,
 				DA7C04DA1E93690000D51E61 /* AppDelegate.swift in Sources */,
 				DA7C04ED1E936A5B00D51E61 /* MapViewController.swift in Sources */,
+				25968E961EB5B0D800B14B3A /* CurvedPolyLineRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +335,7 @@
 				DA7C04EA1E93690100D51E61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

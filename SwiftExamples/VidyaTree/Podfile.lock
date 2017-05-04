@@ -1,0 +1,39 @@
+PODS:
+  - ApiAI (0.7.0):
+    - ApiAI/AudioFileConverter (= 0.7.0)
+    - ApiAI/Core (= 0.7.0)
+    - ApiAI/Events (= 0.7.0)
+    - ApiAI/ResponseMapping (= 0.7.0)
+    - ApiAI/UIKit (= 0.7.0)
+    - ApiAI/UserEntities (= 0.7.0)
+    - ApiAI/VoiceFileRequest (= 0.7.0)
+    - ApiAI/VoiceRequest (= 0.7.0)
+  - ApiAI/AudioFileConverter (0.7.0):
+    - ApiAI/Core
+  - ApiAI/Core (0.7.0)
+  - ApiAI/Events (0.7.0):
+    - ApiAI/Core
+  - ApiAI/ResponseMapping (0.7.0):
+    - ApiAI/Core
+  - ApiAI/UIKit (0.7.0):
+    - ApiAI/Core
+    - ApiAI/VoiceRequest
+  - ApiAI/UserEntities (0.7.0):
+    - ApiAI/Core
+  - ApiAI/VoiceFileRequest (0.7.0):
+    - ApiAI/Core
+  - ApiAI/VoiceRequest (0.7.0):
+    - ApiAI/Core
+  - SCSiriWaveformView (1.1.0)
+
+DEPENDENCIES:
+  - ApiAI
+  - SCSiriWaveformView
+
+SPEC CHECKSUMS:
+  ApiAI: 25f763ddd88139dc5fe6794a905300244190d168
+  SCSiriWaveformView: fbb2be796930670698ed6705f3b48f3dd387a73f
+
+PODFILE CHECKSUM: 6c95545f4fdb49540a70d180c008a685fc925de3
+
+COCOAPODS: 1.1.1

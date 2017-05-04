@@ -17,9 +17,13 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         super.viewDidLoad()
         //Request User Location
         requestUserLocation()
-        
+        mapView.delegate = self
+
         // add Annotation
-        addAnnotation()
+        //addAnnotation()
+        
+        //Add Route
+        drawRoute()
     }
 
     func requestUserLocation(){
@@ -37,7 +41,6 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     }
   
     func addAnnotation(){
-        mapView.delegate = self
         mapView.addAnnotations(Place.locations)
     }
    
@@ -50,6 +53,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         annotationView.image = UIImage(named: "Annotations")
         annotationView.canShowCallout = true;
         annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        
         //Add Circular overlay
         let overlays = Place.locations.map {MKCircle(center: $0.coordinate, radius: 100)}
         mapView.addOverlays(overlays)
@@ -58,6 +62,7 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         var locations = Place.locations.map{$0.coordinate}
         let polyLines = MKPolyline(coordinates: &locations, count: locations.count)
         mapView.add(polyLines)
+        
         // Add Polygons
         let polygon = MKPolygon(coordinates: &locations, count: locations.count)
         mapView.add(polygon)
@@ -102,4 +107,49 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         present(alert,animated: true,completion: nil)
            
     }
+    
+    //MARK : Draw Route
+    func drawRoute(){
+    
+        // 1) Source and destination coordinates
+        let sourceCordinate = CLLocationCoordinate2D(latitude: 40.759011, longitude: -73.984472) //ABES
+        let destinationCordinate = CLLocationCoordinate2D(latitude: 40.748441, longitude: -73.985564) //Noida
+        
+        // 2) Get PlaceMark from coordinates
+        let sourcePlaceMark = MKPlacemark(coordinate: sourceCordinate)
+        let destinationPlaceMark = MKPlacemark(coordinate: destinationCordinate)
+        
+        // 3) Get MapItem from PlaceMark
+        let sourceMapItem = MKMapItem(placemark: sourcePlaceMark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlaceMark)
+    
+        // 4) Request for direction
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .any
+        
+        // 5) create Direction
+        let directions = MKDirections(request: directionRequest)
+
+        // 6) Call calculateDirection
+        directions.calculate { (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+            let route = response.routes[0] // MKRoute
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+            
+        }
+    
+    }
+    
+    mapview
 }
