@@ -116,7 +116,6 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
         } catch {
             print("audioEngine couldn't start because of an error.")
         }
-        //self.delegate?.textFromSpeech(text : "Say something, I'm listening!")
     }
     
     func onMicrophoneTap(){
@@ -140,9 +139,14 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
     
     //Mark : Text to speech Conversion
     func convertTextToSpeech(textToSpeak: String){
-        //stop audio engine
-        if audioEngine.isRunning {
-            audioEngine.stop()
+        
+        let audioSession = AVAudioSession.sharedInstance()  //2
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
+            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
         }
         synth.delegate = self;
         myUtterance = AVSpeechUtterance(string: textToSpeak)
@@ -150,6 +154,13 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
         myUtterance.rate = 0.3
         myUtterance.pitchMultiplier = 2
         synth.speak(myUtterance)
+        //stop audio engine
+        do {
+            try audioSession.setActive(false)
+        }catch  {
+            print("Error in deactivating because of an error.\(error)")
+        }
+        
     }
     
     //Mark : Observer Microphone volume
