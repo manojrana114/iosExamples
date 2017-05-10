@@ -35,9 +35,7 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
             voiceHelper.setupSpeechRecognition()
        
         //setup waveview
-        configureWaveView()
-        updateWaveViewMeters()
-        
+        configureWaveView()        
     }
 
 
@@ -51,14 +49,14 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
     //Mark: Configure WaveView
     func configureWaveView(){
         waveView.waveColor = UIColor.white
-        waveView.primaryWaveLineWidth = 3.0
+        waveView.primaryWaveLineWidth = 2.0
         waveView.secondaryWaveLineWidth = 1.0
     }
     
-    func updateWaveViewMeters(){
-    //TODO: Fetch from Recorder
-        let normalizedValue:CGFloat = 0.5 //pow(10, CGFloat(recorder.averagePowerForChannel(0))/20)
-       waveView.update(withLevel: normalizedValue)
+    func updateWaveView(value : Float32){
+        //Normal silent value ranges from -22 to - 28
+        let normalizedValue : CGFloat = (40 + CGFloat(value)) * 0.03
+        waveView.update(withLevel: normalizedValue)
     }
   
     //Mark : VoiceHelper Delegate
@@ -117,6 +115,7 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
         //Call API for query
         self.apiAI.enqueue(request)
     }
+    
     
 }
 

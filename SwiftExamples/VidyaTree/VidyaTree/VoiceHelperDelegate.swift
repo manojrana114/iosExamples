@@ -15,4 +15,5 @@ protocol VoiceHelperDelegate : class {
     
     func highLightTextInTextView(position : Int ,length: Int)
     
+    func updateWaveView(value : Float32)
 }

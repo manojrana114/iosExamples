@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		253E76AE1EC3911500C1EECA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E76AD1EC3911500C1EECA /* Accelerate.framework */; };
 		256F94591EBB96AD0034F3B6 /* VoiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */; };
 		256F945B1EBBA0920034F3B6 /* VoiceHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */; };
 		25DCC7581EBA4A77004A7BCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DCC7571EBA4A77004A7BCE /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		253E76AD1EC3911500C1EECA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelper.swift; sourceTree = "<group>"; };
 		256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelperDelegate.swift; sourceTree = "<group>"; };
 		25DCC7541EBA4A77004A7BCE /* VidyaTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VidyaTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253E76AE1EC3911500C1EECA /* Accelerate.framework in Frameworks */,
 				DAFED3641EBB71A600ABA3BE /* AVFoundation.framework in Frameworks */,
 				9C94C69938D457E8593AE400 /* Pods_VidyaTree.framework in Frameworks */,
 			);
@@ -102,6 +105,7 @@
 		79AFF05F0079B255640F6E26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				253E76AD1EC3911500C1EECA /* Accelerate.framework */,
 				DAFED3631EBB71A600ABA3BE /* AVFoundation.framework */,
 				A85A4282D676B8D12E636754 /* Pods_VidyaTree.framework */,
 			);

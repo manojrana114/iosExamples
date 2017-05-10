@@ -7,8 +7,8 @@
 //
 import Speech
 import AVFoundation
-
-class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
+import Accelerate
+class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTaskDelegate {
     
     //Delegate
      weak var delegate :VoiceHelperDelegate?
@@ -29,8 +29,7 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
     
     private let audioEngine = AVAudioEngine()
     
-    let audioSession = AVAudioSession.sharedInstance()  
-
+    let audioSession = AVAudioSession.sharedInstance()
     
     //Speech Synthesier
     let synth = AVSpeechSynthesizer()
@@ -38,6 +37,15 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
     
     //var to hold text read
     var textRead : String = ""
+    
+    
+    ///
+    let LEVEL_LOWPASS_TRIG : Float32 = 0.3
+
+    var averagePowerForChannel0 : Float32 = 0.001
+    
+    
+    ////
     
     //MARK: Setup speech recognition
     func setupSpeechRecognition(){
@@ -110,8 +118,58 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
         let recordingFormat = inputNode.outputFormat(forBus: 0)  //11
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
-        }
-        
+
+            //Code to animate a waveform with the microphone volume, ignore if you don't need it:
+            let inNumberFrames:UInt32 = buffer.frameLength;
+           
+            if(buffer.format.channelCount > 0){
+                
+               // var samples:Float32 = buffer.floatChannelData![0][0];
+                var avgValue:Float32 = 0;
+                vDSP_maxmgv((buffer.floatChannelData?[0])!, 1, &avgValue, vDSP_Length(inNumberFrames)); //Accelerate Framework
+                
+                let avg3:Float32 = ((avgValue == 0) ? (-100) : 20.0)
+                
+                self.averagePowerForChannel0 = (self.LEVEL_LOWPASS_TRIG * avg3 * log10f(avgValue)) + ((1-self.LEVEL_LOWPASS_TRIG) * self.averagePowerForChannel0) ;
+            }
+            
+           /* if(buffer.format.channelCount > 1){
+                
+                var avgValue:Float32 = 0;
+                vDSP_meamgv((buffer.floatChannelData?[0])!, 1, &avgValue, vDSP_Length(inNumberFrames)); //Accelerate Framework
+                
+                let avg3:Float32 = ((avgValue == 0) ? (-100) : 20.0)
+                
+                self.averagePowerForChannel1 = (self.LEVEL_LOWPASS_TRIG * avg3 * log10f(avgValue)) + ((1-self.LEVEL_LOWPASS_TRIG) * self.averagePowerForChannel1) ;
+            }*/
+            
+    
+            
+            
+            print("AVG. POWER: " + self.averagePowerForChannel0.description)
+           
+            DispatchQueue.main.async {
+                self.delegate?.updateWaveView(value: self.averagePowerForChannel0)
+            }
+            /*dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                //print("VU: "+vu.description)
+                var fAvgPwr=CGFloat(averagePower)
+                print("AvgPwr: "+fAvgPwr.description)
+                
+                var waveformFriendlyValue=0.5+fAvgPwr //-0.5 is AvgPwrValue when user is silent
+                if(waveformFriendlyValue<0){waveformFriendlyValue=0} //round values <0 to 0
+                self.waveview.hidden=false
+                self.waveview.updateWithLevel(waveformFriendlyValue)
+            })*/
+    }
+   
+
+    //I use this timer to track no speech timeouts, ignore if not neeeded:
+   // self.endOfSpeechTimeoutTimer = NSTimer.scheduledTimerWithTimeInterval(utteranceTimeoutSeconds, target: self, selector:  #selector(ViewController.stopNativeRecording), userInfo: nil, repeats: false)
+    
+    
+    
+    
         audioEngine.prepare()  //12
         
         do {
@@ -139,11 +197,6 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
             self.isButtonEnabled = false
         }
     }
-    
-    
-    
-    //Mark : Observer Microphone volume
-    //TODO
 }
 
 extension VoiceHelper : AVSpeechSynthesizerDelegate{
