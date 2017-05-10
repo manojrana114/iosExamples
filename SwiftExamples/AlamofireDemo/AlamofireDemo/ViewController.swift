@@ -28,7 +28,7 @@ class ViewController: UIViewController {
            self.updateUI()
         }*/
         
-        model.alamofireTest()
+        model.alamofireHandlerOnCustomQueue()
     }
 
     func updateUI(){

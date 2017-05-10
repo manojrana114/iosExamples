@@ -64,7 +64,7 @@ extension DataModel{
 
 extension DataModel{
     
-    func alamofireTest(){
+    func alamofireJSONHandler(){
         Alamofire.request("https://httpbin.org/get").responseJSON { response in
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
@@ -77,4 +77,21 @@ extension DataModel{
         }
     }
     
+}
+
+
+extension DataModel{
+
+    func alamofireHandlerOnCustomQueue(){
+    let queue = DispatchQueue.global(qos: .userInitiated)
+        
+        Alamofire.request("https://httpbin.org/get").validate().responseData(queue: queue) { (response) in
+            print(response.data)
+            print(response.error)
+            print(response.value)
+            
+        }
+        
+    }
+
 }

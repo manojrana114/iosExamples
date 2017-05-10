@@ -71,6 +71,15 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
         
     }
     
+    func highLightTextInTextView(position : Int ,length: Int){
+        self.speechToTextView.scrollRangeToVisible(NSMakeRange(position, length));
+        let string = NSMutableAttributedString(attributedString: speechToTextView.attributedText)
+        let attributes = [NSBackgroundColorAttributeName : UIColor.init(red: 0.6784, green: 0.8392, blue: 1.0000, alpha: 0.8)]
+        string.addAttributes(attributes, range: speechToTextView.selectedRange)
+        speechToTextView.attributedText = string
+        speechToTextView.selectedRange = NSMakeRange(position, length)
+    }
+
     func enableMicrophone(enable : Bool){
         self.microphoneButton.isEnabled = enable
     }
@@ -89,10 +98,12 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
                             //Response from query , schedule it to play
                             DispatchQueue.main.async {
                                 self?.speechToTextView.text = speech
-                            }
-                            DispatchQueue.global().async {
                                 self?.voiceHelper.convertTextToSpeech(textToSpeak: speech)
+
                             }
+//                            DispatchQueue.global().async {
+//                                self?.voiceHelper.convertTextToSpeech(textToSpeak: speech)
+//                            }
                         }
                     }
                 }

@@ -8,7 +8,7 @@
 import Speech
 import AVFoundation
 
-class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDelegate {
+class VoiceHelper : NSObject, SFSpeechRecognizerDelegate {
     
     //Delegate
      weak var delegate :VoiceHelperDelegate?
@@ -28,6 +28,9 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
     private var recognitionTask: SFSpeechRecognitionTask?
     
     private let audioEngine = AVAudioEngine()
+    
+    let audioSession = AVAudioSession.sharedInstance()  
+
     
     //Speech Synthesier
     let synth = AVSpeechSynthesizer()
@@ -137,10 +140,19 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
         }
     }
     
+    
+    
+    //Mark : Observer Microphone volume
+    //TODO
+}
+
+extension VoiceHelper : AVSpeechSynthesizerDelegate{
     //Mark : Text to speech Conversion
     func convertTextToSpeech(textToSpeak: String){
-        
-        let audioSession = AVAudioSession.sharedInstance()  //2
+        if synth.isSpeaking{
+            synth.stopSpeaking(at: .immediate)
+        }
+//        let audioSession = AVAudioSession.sharedInstance()  //2
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
@@ -151,18 +163,29 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate ,AVSpeechSynthesizerDel
         synth.delegate = self;
         myUtterance = AVSpeechUtterance(string: textToSpeak)
         myUtterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
-        myUtterance.rate = 0.3
-        myUtterance.pitchMultiplier = 2
+        myUtterance.rate = 0.4
+        myUtterance.pitchMultiplier = 1.2
         synth.speak(myUtterance)
-        //stop audio engine
-        do {
-            try audioSession.setActive(false)
-        }catch  {
-            print("Error in deactivating because of an error.\(error)")
-        }
-        
     }
     
-    //Mark : Observer Microphone volume
-    //TODO
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        let selectionPosition = characterRange.location;
+        let wordLength = characterRange.length;
+
+        delegate?.highLightTextInTextView(position: selectionPosition, length: wordLength)
+    }
+    
+    
+}
+
+extension String {
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard
+            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location + nsRange.length, limitedBy: utf16.endIndex),
+            let from = from16.samePosition(in: self),
+            let to = to16.samePosition(in: self)
+            else { return nil }
+        return from ..< to
+    }
 }

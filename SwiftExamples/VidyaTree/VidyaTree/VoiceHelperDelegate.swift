@@ -12,4 +12,7 @@ protocol VoiceHelperDelegate : class {
     func textFromSpeech(text : String);
     
     func enableMicrophone(enable : Bool)
+    
+    func highLightTextInTextView(position : Int ,length: Int)
+    
 }
