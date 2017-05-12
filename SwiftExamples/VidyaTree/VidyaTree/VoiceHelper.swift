@@ -31,6 +31,8 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
     
     let audioSession = AVAudioSession.sharedInstance()
     
+    private var previousValue : Float32 = 0.0
+    
     //Speech Synthesier
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
@@ -133,44 +135,22 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
                 self.averagePowerForChannel0 = (self.LEVEL_LOWPASS_TRIG * avg3 * log10f(avgValue)) + ((1-self.LEVEL_LOWPASS_TRIG) * self.averagePowerForChannel0) ;
             }
             
-           /* if(buffer.format.channelCount > 1){
-                
-                var avgValue:Float32 = 0;
-                vDSP_meamgv((buffer.floatChannelData?[0])!, 1, &avgValue, vDSP_Length(inNumberFrames)); //Accelerate Framework
-                
-                let avg3:Float32 = ((avgValue == 0) ? (-100) : 20.0)
-                
-                self.averagePowerForChannel1 = (self.LEVEL_LOWPASS_TRIG * avg3 * log10f(avgValue)) + ((1-self.LEVEL_LOWPASS_TRIG) * self.averagePowerForChannel1) ;
-            }*/
-            
-    
-            
-            
             print("AVG. POWER: " + self.averagePowerForChannel0.description)
            
             DispatchQueue.main.async {
                 self.delegate?.updateWaveView(value: self.averagePowerForChannel0)
             }
-            /*dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //print("VU: "+vu.description)
-                var fAvgPwr=CGFloat(averagePower)
-                print("AvgPwr: "+fAvgPwr.description)
-                
-                var waveformFriendlyValue=0.5+fAvgPwr //-0.5 is AvgPwrValue when user is silent
-                if(waveformFriendlyValue<0){waveformFriendlyValue=0} //round values <0 to 0
-                self.waveview.hidden=false
-                self.waveview.updateWithLevel(waveformFriendlyValue)
-            })*/
+            
+            //Call detectSilence every one sec
+            let dispatchTime = DispatchTime.now() + DispatchTimeInterval.seconds(2)
+            DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
+                // your function here
+                self.detectSilence(audioPower:self.averagePowerForChannel0)
+            }
+            
     }
    
-
-    //I use this timer to track no speech timeouts, ignore if not neeeded:
-   // self.endOfSpeechTimeoutTimer = NSTimer.scheduledTimerWithTimeInterval(utteranceTimeoutSeconds, target: self, selector:  #selector(ViewController.stopNativeRecording), userInfo: nil, repeats: false)
-    
-    
-    
-    
-        audioEngine.prepare()  //12
+      audioEngine.prepare()  //12
         
         do {
             try audioEngine.start()
@@ -197,6 +177,22 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
             self.isButtonEnabled = false
         }
     }
+    
+    
+    //Stop recording
+   @objc func detectSilence(audioPower : Float32){
+        let minPower = self.previousValue - 8.0
+        let maxPower = self.previousValue + 8.0
+        self.previousValue = audioPower
+        if((minPower < audioPower)  && (audioPower < maxPower)){
+           
+            if audioEngine.isRunning {
+                audioEngine.stop()
+                recognitionRequest?.endAudio()
+                self.isButtonEnabled = false
+            }
+        }
+    }
 }
 
 extension VoiceHelper : AVSpeechSynthesizerDelegate{
@@ -205,7 +201,6 @@ extension VoiceHelper : AVSpeechSynthesizerDelegate{
         if synth.isSpeaking{
             synth.stopSpeaking(at: .immediate)
         }
-//        let audioSession = AVAudioSession.sharedInstance()  //2
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
             try audioSession.setMode(AVAudioSessionModeMeasurement)

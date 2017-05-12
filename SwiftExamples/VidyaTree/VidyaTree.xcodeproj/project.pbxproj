@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2539963F1EC4D79100310832 /* vt.png in Resources */ = {isa = PBXBuildFile; fileRef = 2539963E1EC4D79100310832 /* vt.png */; };
 		253E76AE1EC3911500C1EECA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E76AD1EC3911500C1EECA /* Accelerate.framework */; };
 		256F94591EBB96AD0034F3B6 /* VoiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */; };
 		256F945B1EBBA0920034F3B6 /* VoiceHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2539963E1EC4D79100310832 /* vt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vt.png; sourceTree = "<group>"; };
 		253E76AD1EC3911500C1EECA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelper.swift; sourceTree = "<group>"; };
 		256F945A1EBBA0920034F3B6 /* VoiceHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceHelperDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		25DCC7561EBA4A77004A7BCE /* VidyaTree */ = {
 			isa = PBXGroup;
 			children = (
+				2539963E1EC4D79100310832 /* vt.png */,
 				25DCC7691EBA4B53004A7BCE /* Supporting Files */,
 				25DCC7591EBA4A77004A7BCE /* ViewController.swift */,
 				256F94581EBB96AD0034F3B6 /* VoiceHelper.swift */,
@@ -178,6 +181,7 @@
 				25DCC7621EBA4A77004A7BCE /* LaunchScreen.storyboard in Resources */,
 				25DCC75F1EBA4A77004A7BCE /* Assets.xcassets in Resources */,
 				25DCC75D1EBA4A77004A7BCE /* Main.storyboard in Resources */,
+				2539963F1EC4D79100310832 /* vt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

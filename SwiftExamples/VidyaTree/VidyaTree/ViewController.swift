@@ -40,6 +40,7 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
 
 
     @IBAction func microphoneTapped(_ sender: AnyObject) {
+        self.toggleMicAndWave()
         self.speechToTextView.text =  "Say something, I'm listening!"
         voiceHelper.onMicrophoneTap()
         //self.voiceHelper.convertTextToSpeech(textToSpeak: "Hi , I am manoj")
@@ -95,13 +96,11 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
                         if let speech =  fulfillment["speech"] as? String{
                             //Response from query , schedule it to play
                             DispatchQueue.main.async {
+                                self?.toggleMicAndWave()
                                 self?.speechToTextView.text = speech
                                 self?.voiceHelper.convertTextToSpeech(textToSpeak: speech)
 
                             }
-//                            DispatchQueue.global().async {
-//                                self?.voiceHelper.convertTextToSpeech(textToSpeak: speech)
-//                            }
                         }
                     }
                 }
@@ -116,6 +115,18 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
         self.apiAI.enqueue(request)
     }
     
+    //toggle WaveView and microphone
+    func toggleMicAndWave(){
+        if(self.microphoneButton.isHidden){
+            self.microphoneButton.isHidden = false
+            self.waveView.isHidden = true
+        }else{
+            self.microphoneButton.isHidden = true
+            self.waveView.isHidden = false
+            
+        }
+        
+    }
     
 }
 

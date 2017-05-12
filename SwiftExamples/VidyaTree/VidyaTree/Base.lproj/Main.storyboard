@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfo-Wn-dI8">
-                                <rect key="frame" x="152.5" y="598" width="70" height="36"/>
+                                <rect key="frame" x="152" y="611" width="70" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="2l4-0N-kdL"/>
-                                    <constraint firstAttribute="height" constant="36" id="nal-yw-QEM"/>
+                                    <constraint firstAttribute="height" constant="36" id="XFK-tW-WT7"/>
+                                    <constraint firstAttribute="width" constant="70" id="viA-F3-FBi"/>
                                 </constraints>
                                 <state key="normal" image="Microphone"/>
                                 <connections>
@@ -34,44 +34,73 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KQA-lB-jii">
-                                <rect key="frame" x="16" y="158" width="343" height="181"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="181" id="GaC-17-Le2"/>
-                                </constraints>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="203" width="343" height="332"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What can I help you with ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pko-2T-oWB">
-                                <rect key="frame" x="51" y="37" width="274" height="93"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What can I help you with ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pko-2T-oWB">
+                                <rect key="frame" x="40" y="110" width="296" height="92"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="93" id="DXR-OV-sy9"/>
+                                    <constraint firstAttribute="height" constant="92" id="Twb-Tj-Xgf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-PU-h1s" customClass="SCSiriWaveformView">
-                                <rect key="frame" x="54" y="454" width="240" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vt.png" translatesAutoresizingMaskIntoConstraints="NO" id="1FF-96-ZQl">
+                                <rect key="frame" x="116" y="28" width="142" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="142" id="V8L-uL-cJc"/>
+                                    <constraint firstAttribute="height" constant="64" id="xlr-X8-Y3u"/>
+                                </constraints>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-PU-h1s" customClass="SCSiriWaveformView">
+                                <rect key="frame" x="67" y="603" width="240" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="density">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="phaseShift">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="frequency">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="primaryWaveLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="secondaryWaveLineWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="KQA-lB-jii" firstAttribute="top" secondItem="pko-2T-oWB" secondAttribute="bottom" constant="28" id="9vX-xW-qCe"/>
-                            <constraint firstItem="KQA-lB-jii" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mb8-dG-sHJ"/>
-                            <constraint firstItem="pko-2T-oWB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="R9e-Z8-vV9"/>
-                            <constraint firstItem="Lfo-Wn-dI8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VRK-6E-0Or"/>
-                            <constraint firstItem="KQA-lB-jii" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VtZ-gc-cnJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lfo-Wn-dI8" secondAttribute="bottom" constant="33" id="lw1-KR-DFN"/>
-                            <constraint firstItem="pko-2T-oWB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="met-Bc-Sdz"/>
+                            <constraint firstAttribute="bottom" secondItem="Lfo-Wn-dI8" secondAttribute="bottom" constant="20" symbolic="YES" id="7CA-r4-WdN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ccH-PU-h1s" secondAttribute="bottom" constant="26" id="AuE-f2-jsG"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="top" secondItem="pko-2T-oWB" secondAttribute="bottom" constant="1" id="CEy-UT-GrC"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DaR-IP-ycv"/>
+                            <constraint firstItem="1FF-96-ZQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="IJL-3z-vKv"/>
+                            <constraint firstItem="ccH-PU-h1s" firstAttribute="centerX" secondItem="Lfo-Wn-dI8" secondAttribute="centerX" id="R9q-ms-lwX"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="centerX" secondItem="ccH-PU-h1s" secondAttribute="centerX" id="TeP-nQ-Cag"/>
+                            <constraint firstItem="Lfo-Wn-dI8" firstAttribute="top" secondItem="KQA-lB-jii" secondAttribute="bottom" constant="76" id="aOV-AA-ObQ"/>
+                            <constraint firstItem="pko-2T-oWB" firstAttribute="top" secondItem="1FF-96-ZQl" secondAttribute="bottom" constant="18" id="fdc-nW-CqF"/>
+                            <constraint firstItem="KQA-lB-jii" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iuW-UZ-qqh"/>
+                            <constraint firstItem="ccH-PU-h1s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="kZn-z3-ecu"/>
+                            <constraint firstItem="ccH-PU-h1s" firstAttribute="top" secondItem="KQA-lB-jii" secondAttribute="bottom" constant="68" id="lkK-z2-YLZ"/>
+                            <constraint firstItem="pko-2T-oWB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="mAx-P9-LVa"/>
+                            <constraint firstItem="1FF-96-ZQl" firstAttribute="centerX" secondItem="KQA-lB-jii" secondAttribute="centerX" id="qP0-Ta-whL"/>
+                            <constraint firstItem="pko-2T-oWB" firstAttribute="centerX" secondItem="KQA-lB-jii" secondAttribute="centerX" id="rce-lw-hkD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -82,10 +111,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="76"/>
+            <point key="canvasLocation" x="-626.39999999999998" y="75.112443778110944"/>
         </scene>
     </scenes>
     <resources>
         <image name="Microphone" width="16" height="16"/>
+        <image name="vt.png" width="200" height="200"/>
     </resources>
 </document>
