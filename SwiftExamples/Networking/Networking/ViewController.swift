@@ -30,7 +30,10 @@
  *   We can pass completion handler or can use delegate to get notified when task is complete
  * d) call resume method on created task
  *
- *
+ 
+ 
+ *   Note :Use it show in status bar : UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
  *
  */
 

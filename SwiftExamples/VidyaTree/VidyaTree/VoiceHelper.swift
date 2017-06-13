@@ -14,7 +14,7 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
      weak var delegate :VoiceHelperDelegate?
     
     //Enable/Disable Microphone button
-    var isButtonEnabled = false {
+    private var isButtonEnabled = false {
         didSet{
             delegate?.enableMicrophone(enable: isButtonEnabled)
         }
@@ -55,8 +55,8 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
         
         SFSpeechRecognizer.requestAuthorization {[weak self] (authStatus) in
             switch authStatus {
-            case .authorized:
-                self?.isButtonEnabled = true
+            case .authorized: break
+                //self?.isButtonEnabled = true
         
             case .denied,.restricted,.notDetermined :
                 self?.isButtonEnabled = false
@@ -190,6 +190,7 @@ class VoiceHelper : NSObject, SFSpeechRecognizerDelegate,SFSpeechRecognitionTask
                 audioEngine.stop()
                 recognitionRequest?.endAudio()
                 self.isButtonEnabled = false
+                self.textRead = "What was that ?"
             }
         }
     }

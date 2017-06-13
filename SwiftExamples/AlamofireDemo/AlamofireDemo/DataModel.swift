@@ -11,7 +11,7 @@ import Alamofire
 
 class DataModel {
     
-     var _date: Double?
+     var _date: Operation?
      var _temp: String?
      var _location: String?
      var _weather: String?
@@ -66,6 +66,9 @@ extension DataModel{
     
     func alamofireJSONHandler(){
         Alamofire.request("https://httpbin.org/get").responseJSON { response in
+            let result = response.result
+            result.value as Dictionary<String:AnyObject>
+            
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
             print(response.data)     // server data

@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 print("Authorized  : \(granted)")
                 
                 //a) Part of registration process  for remoter notification
-                UIApplication.shared.registerForRemoteNotifications();
+                application.registerUserNotificationSettings(<#T##notificationSettings: UIUserNotificationSettings##UIUserNotificationSettings#>)
+                application.registerForRemoteNotifications();
             }else{
                     //Disable notification based feature
                 }};

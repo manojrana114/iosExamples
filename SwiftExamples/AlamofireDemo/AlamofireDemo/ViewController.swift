@@ -24,11 +24,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       /* model.downloadData {
+        model.downloadData {
            self.updateUI()
-        }*/
+        }
         
-        model.alamofireHandlerOnCustomQueue()
+        //model.alamofireHandlerOnCustomQueue()
     }
 
     func updateUI(){

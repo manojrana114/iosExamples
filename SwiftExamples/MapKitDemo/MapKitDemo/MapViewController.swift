@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class MapViewController: UIViewController , MKMapViewDelegate{
+class MapViewController: UIViewController , MKMapViewDelegate,CLLocationManagerDelegate{
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -17,13 +17,19 @@ class MapViewController: UIViewController , MKMapViewDelegate{
         super.viewDidLoad()
         //Request User Location
         requestUserLocation()
+        // set delegate
+        locationManager.delegate = self;
+        
+        
         mapView.delegate = self
 
         // add Annotation
         //addAnnotation()
         
         //Add Route
-        drawRoute()
+        //drawRoute()
+        startMonitoringRegion()
+
     }
 
     func requestUserLocation(){
@@ -36,10 +42,27 @@ class MapViewController: UIViewController , MKMapViewDelegate{
             print("Location access denied")
             
         default:
-            locationManager.requestWhenInUseAuthorization()
+            //locationManager.requestWhenInUseAuthorization()
+    
+            //Code for regio monotoring
+            locationManager.requestAlwaysAuthorization()
         }
     }
   
+    func startMonitoringRegion(){
+        
+        //Add MK Circle around monitoring region
+        let monitoredRegionOverLay = MKCircle(center:
+            .init(latitude: 28.616988, longitude: 77.371626), radius: 200)
+        mapView.add(monitoredRegionOverLay)
+        
+        //Monitor region
+        let currRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 28.616988, longitude: 77.371626), radius: 200, identifier: "Home")
+        locationManager.startMonitoring(for: currRegion)
+        
+    }
+    
+    //MARK : Add annotation to map
     func addAnnotation(){
         mapView.addAnnotations(Place.locations)
     }
@@ -151,5 +174,13 @@ class MapViewController: UIViewController , MKMapViewDelegate{
     
     }
     
-    mapview
+    
+    //MARK : Region monitoring methods
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("Enter region")
+
+    }
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print("Exit region")
+    }
 }

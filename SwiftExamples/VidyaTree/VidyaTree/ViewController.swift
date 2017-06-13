@@ -9,6 +9,7 @@
 import UIKit
 import ApiAI
 import SCSiriWaveformView
+import AVFoundation
 class ViewController: UIViewController ,VoiceHelperDelegate {
     
     
@@ -40,12 +41,19 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
 
 
     @IBAction func microphoneTapped(_ sender: AnyObject) {
-        self.toggleMicAndWave()
-        self.speechToTextView.text =  "Say something, I'm listening!"
-        voiceHelper.onMicrophoneTap()
-        //self.voiceHelper.convertTextToSpeech(textToSpeak: "Hi , I am manoj")
-
-    }
+        
+      let permission =   AVAudioSession.sharedInstance().recordPermission()
+    
+        if(permission == .undetermined)
+        {        AVAudioSession.sharedInstance().requestRecordPermission({ (result) in})
+        }
+            
+        if(permission == .granted){
+            self.showWave()
+            self.speechToTextView.text =  "Say something, I'm listening!"
+            self.voiceHelper.onMicrophoneTap()
+            }
+        }
     
     //Mark: Configure WaveView
     func configureWaveView(){
@@ -62,8 +70,9 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
   
     //Mark : VoiceHelper Delegate
     func textFromSpeech(text: String) {
-       self.speechToTextView.text = text
-       
+        if(!(text == "What was that ?")){
+            self.speechToTextView.text = text
+        }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.init(uptimeNanoseconds: 1000)) { [weak self] in
             self?.submitQuery(query: text)
         }
@@ -80,7 +89,9 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
     }
 
     func enableMicrophone(enable : Bool){
-        self.microphoneButton.isEnabled = enable
+        submitQuery(query: "")
+        self.microphoneButton.isHidden = false
+        self.waveView.isHidden = true
     }
 
     //MARK : API.AI Handling
@@ -96,7 +107,7 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
                         if let speech =  fulfillment["speech"] as? String{
                             //Response from query , schedule it to play
                             DispatchQueue.main.async {
-                                self?.toggleMicAndWave()
+                                self?.showMic()
                                 self?.speechToTextView.text = speech
                                 self?.voiceHelper.convertTextToSpeech(textToSpeak: speech)
 
@@ -107,7 +118,9 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
             }
             
         }, failure: { (request, error) in
-            
+            print(error.debugDescription)
+            self.showMic()
+
             //Error
         })
         
@@ -116,16 +129,14 @@ class ViewController: UIViewController ,VoiceHelperDelegate {
     }
     
     //toggle WaveView and microphone
-    func toggleMicAndWave(){
-        if(self.microphoneButton.isHidden){
+    func showMic(){
             self.microphoneButton.isHidden = false
             self.waveView.isHidden = true
-        }else{
-            self.microphoneButton.isHidden = true
-            self.waveView.isHidden = false
-            
         }
-        
+    
+    func showWave(){
+        self.microphoneButton.isHidden = true
+        self.waveView.isHidden = false
     }
     
 }
