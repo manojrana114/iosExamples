@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		258716FB1EF5AA83005EE28B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258716FA1EF5AA83005EE28B /* AppDelegate.swift */; };
+		258716FD1EF5AA83005EE28B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258716FC1EF5AA83005EE28B /* ViewController.swift */; };
+		258717001EF5AA83005EE28B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258716FE1EF5AA83005EE28B /* Main.storyboard */; };
+		258717021EF5AA83005EE28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258717011EF5AA83005EE28B /* Assets.xcassets */; };
+		258717051EF5AA83005EE28B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258717031EF5AA83005EE28B /* LaunchScreen.storyboard */; };
+		308ECF4BB034B3FAA92AA407 /* Pods_MixPanelDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEFE3B596BD4DB3DD6D303C /* Pods_MixPanelDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		258716F71EF5AA83005EE28B /* MixPanelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixPanelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		258716FA1EF5AA83005EE28B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		258716FC1EF5AA83005EE28B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		258716FF1EF5AA83005EE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		258717011EF5AA83005EE28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		258717041EF5AA83005EE28B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		258717061EF5AA83005EE28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B7681784CFF7E720EEE9CF2 /* Pods-MixPanelDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixPanelDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixPanelDemo/Pods-MixPanelDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4CEFE3B596BD4DB3DD6D303C /* Pods_MixPanelDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixPanelDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4F737D9BC3A7BC7CE9040AA /* Pods-MixPanelDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixPanelDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixPanelDemo/Pods-MixPanelDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		258716F41EF5AA83005EE28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				308ECF4BB034B3FAA92AA407 /* Pods_MixPanelDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		258716EE1EF5AA83005EE28B = {
+			isa = PBXGroup;
+			children = (
+				258716F91EF5AA83005EE28B /* MixPanelDemo */,
+				258716F81EF5AA83005EE28B /* Products */,
+				A757E042BE7380062FE78BD0 /* Pods */,
+				3953097C131BD306C7DB0D50 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		258716F81EF5AA83005EE28B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				258716F71EF5AA83005EE28B /* MixPanelDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		258716F91EF5AA83005EE28B /* MixPanelDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2587170C1EF5AE12005EE28B /* Suppoorting Files */,
+				258716FC1EF5AA83005EE28B /* ViewController.swift */,
+				258717061EF5AA83005EE28B /* Info.plist */,
+			);
+			path = MixPanelDemo;
+			sourceTree = "<group>";
+		};
+		2587170C1EF5AE12005EE28B /* Suppoorting Files */ = {
+			isa = PBXGroup;
+			children = (
+				258716FA1EF5AA83005EE28B /* AppDelegate.swift */,
+				258716FE1EF5AA83005EE28B /* Main.storyboard */,
+				258717011EF5AA83005EE28B /* Assets.xcassets */,
+				258717031EF5AA83005EE28B /* LaunchScreen.storyboard */,
+			);
+			name = "Suppoorting Files";
+			sourceTree = "<group>";
+		};
+		3953097C131BD306C7DB0D50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CEFE3B596BD4DB3DD6D303C /* Pods_MixPanelDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A757E042BE7380062FE78BD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4F737D9BC3A7BC7CE9040AA /* Pods-MixPanelDemo.debug.xcconfig */,
+				3B7681784CFF7E720EEE9CF2 /* Pods-MixPanelDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		258716F61EF5AA83005EE28B /* MixPanelDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 258717091EF5AA83005EE28B /* Build configuration list for PBXNativeTarget "MixPanelDemo" */;
+			buildPhases = (
+				0B80BEB089BFD83AB376DAAE /* [CP] Check Pods Manifest.lock */,
+				258716F31EF5AA83005EE28B /* Sources */,
+				258716F41EF5AA83005EE28B /* Frameworks */,
+				258716F51EF5AA83005EE28B /* Resources */,
+				6A6D6CB795A9CBD2282963FD /* [CP] Embed Pods Frameworks */,
+				022A06144098A4863DBDB22F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MixPanelDemo;
+			productName = MixPanelDemo;
+			productReference = 258716F71EF5AA83005EE28B /* MixPanelDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		258716EF1EF5AA83005EE28B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Impetus;
+				TargetAttributes = {
+					258716F61EF5AA83005EE28B = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = Z8WU3JB343;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 258716F21EF5AA83005EE28B /* Build configuration list for PBXProject "MixPanelDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 258716EE1EF5AA83005EE28B;
+			productRefGroup = 258716F81EF5AA83005EE28B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				258716F61EF5AA83005EE28B /* MixPanelDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		258716F51EF5AA83005EE28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258717051EF5AA83005EE28B /* LaunchScreen.storyboard in Resources */,
+				258717021EF5AA83005EE28B /* Assets.xcassets in Resources */,
+				258717001EF5AA83005EE28B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		022A06144098A4863DBDB22F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixPanelDemo/Pods-MixPanelDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0B80BEB089BFD83AB376DAAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A6D6CB795A9CBD2282963FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixPanelDemo/Pods-MixPanelDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		258716F31EF5AA83005EE28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258716FD1EF5AA83005EE28B /* ViewController.swift in Sources */,
+				258716FB1EF5AA83005EE28B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		258716FE1EF5AA83005EE28B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				258716FF1EF5AA83005EE28B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		258717031EF5AA83005EE28B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				258717041EF5AA83005EE28B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		258717071EF5AA83005EE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		258717081EF5AA83005EE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2587170A1EF5AA83005EE28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4F737D9BC3A7BC7CE9040AA /* Pods-MixPanelDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Z8WU3JB343;
+				INFOPLIST_FILE = MixPanelDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices.MixPanelDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2587170B1EF5AA83005EE28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B7681784CFF7E720EEE9CF2 /* Pods-MixPanelDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Z8WU3JB343;
+				INFOPLIST_FILE = MixPanelDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices.MixPanelDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		258716F21EF5AA83005EE28B /* Build configuration list for PBXProject "MixPanelDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				258717071EF5AA83005EE28B /* Debug */,
+				258717081EF5AA83005EE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		258717091EF5AA83005EE28B /* Build configuration list for PBXNativeTarget "MixPanelDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2587170A1EF5AA83005EE28B /* Debug */,
+				2587170B1EF5AA83005EE28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 258716EF1EF5AA83005EE28B /* Project object */;
+}

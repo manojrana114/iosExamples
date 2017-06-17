@@ -19,7 +19,7 @@ import UIKit
  
  //4) Insert query
             queryInsert = "insert into movies (\(field_MovieID), \(field_MovieTitle), \(field_MovieCategory), \(field_MovieYear), \(field_MovieURL), \(field_MovieCoverURL), \(field_MovieWatched), \(field_MovieLikes)) values (null, '\(movieTitle)', '\(movieCategory)', \(movieYear), '\(movieURL)', '\(movieCoverURL)', 0, 0);"
-            database.executeStatements(query)
+            database.executeUpdate(query)
  
  //4) Read query
             let query = "select * from movies order by \(field_MovieYear) asc"
