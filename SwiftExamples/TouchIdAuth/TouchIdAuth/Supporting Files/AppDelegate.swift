@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TouchIdAuthDemo
+//  TouchIdAuth
 //
-//  Created by Manoj pratap singh rana on 10/06/17.
+//  Created by Manoj pratap singh rana on 18/06/17.
 //  Copyright © 2017 Impetus. All rights reserved.
 //
 
@@ -41,8 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    
-    
 
 }
 
