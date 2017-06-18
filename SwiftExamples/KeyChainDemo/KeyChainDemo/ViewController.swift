@@ -10,7 +10,7 @@ import UIKit
 import Security
 class ViewController: UIViewController {
 
-    let myKeychainWrapper = KeychainWrapper()
+    let myKeychainWrapper = KeychainWrapper(
     
     override func viewDidLoad() {
         super.viewDidLoad()
